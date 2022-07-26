@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package cases;
+
+//Get all cases
+message GetTotalCasesRequest {
+  string TotalCases = 1;
+}
+message GetTotalCasesResponse {
+  int32 TotalCases = 1;
+}
+
+// Get a specific case
+message GetCaseRequest {
+  string GetCase = 1;
+}
+message GetCaseResponse {
+  int32 userId = 1;
+  int32 id = 2;
+  string string = 3;
+  string body = 4;
+}
+
+// HealthCheck
+message HealthCheckRequest {
+  string HealthCheck = 1;
+}
+
+message HealthCheckResponse {
+  string status = 1;
+  string grpcCode = 2;
+  string processTime = 3;
+  string timestamp = 4;  
+}
+
+// Service
+service TotalCasesService {
+  rpc GetTotalCases(GetTotalCasesRequest) returns (GetTotalCasesResponse) {}
+  rpc GetCase(GetCaseRequest) returns (GetCaseResponse) {}
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse) {}
+}
