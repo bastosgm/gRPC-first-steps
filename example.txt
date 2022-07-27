@@ -1,2 +1,0 @@
-oi, sou um exemplo!
-essa linha representa o hotfix
