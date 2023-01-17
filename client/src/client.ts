@@ -13,20 +13,18 @@ const HOST = process.env["HOST"] || "localhost:3000";
 const packageDefinition = protoLoader.loadSync(PROTO_FILE);
 
 // Preparing the package
-const casesPackage: any =
-  grpc.loadPackageDefinition(packageDefinition)["cases"];
+const postsPackage: any =
+  grpc.loadPackageDefinition(packageDefinition)["posts"];
 
 // Credentials
 const credentials = grpc.credentials.createSsl(
-  fs.readFileSync(
-    path.join("/home/bastosgm/projects/grpc/gRPC-first-steps/ssl/rootCA.crt"),
-  ),
+  fs.readFileSync(path.join(__dirname, "../../ssl/rootCA.crt")),
 );
 
-// Service TotalCasesService
-const TotalCasesService: ServiceClient = new casesPackage.TotalCasesService(
+// Service TotalPostsService
+const TotalPostsService: ServiceClient = new postsPackage.TotalPostsService(
   HOST,
   credentials,
 );
 
-export default TotalCasesService;
+export default TotalPostsService;

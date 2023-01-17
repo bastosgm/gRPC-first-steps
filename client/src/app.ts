@@ -1,11 +1,11 @@
-import TotalCasesService from "./client";
-import { IGetCaseResponse, IGetTotalCasesResponse } from "types/client";
+import TotalPostsService from "./client";
+import { IGetPostResponse, IGetTotalPostsResponse } from "types/client";
 import logger from "./logs/logger";
 
 // Requesting total cases
-TotalCasesService["GetTotalCases"](
-  { TotalCases: "get total cases" },
-  (err: Error, response: IGetTotalCasesResponse) => {
+TotalPostsService["GetTotalPosts"](
+  { TotalPosts: "get total cases" },
+  (err: Error, response: IGetTotalPostsResponse) => {
     if (response !== undefined) {
       logger.log("info", JSON.stringify(response, null, "\t"));
     } else {
@@ -15,9 +15,9 @@ TotalCasesService["GetTotalCases"](
 );
 
 // // Requesting a especific case
-TotalCasesService["GetCase"](
-  { GetCase: "34" },
-  (err: Error, response: IGetCaseResponse) => {
+TotalPostsService["GetPost"](
+  { GetPost: "34" },
+  (err: Error, response: IGetPostResponse) => {
     if (response !== undefined) {
       logger.log("info", JSON.stringify(response, null, "\t"));
     } else {
@@ -27,9 +27,9 @@ TotalCasesService["GetCase"](
 );
 
 // Requesting health
-TotalCasesService["HealthCheck"](
+TotalPostsService["HealthCheck"](
   { HealthCheck: "health" },
-  (err: Error, response: IGetCaseResponse) => {
+  (err: Error, response: IGetPostResponse) => {
     if (response !== undefined) {
       logger.log("info", JSON.stringify(response, null, "\t"));
     } else {
