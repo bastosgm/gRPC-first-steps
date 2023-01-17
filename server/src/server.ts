@@ -12,8 +12,8 @@ import createLogger from "./utils/logger/logger";
 const logger = createLogger(__filename);
 
 // Data
-const PROTO_FILE = process.env["PROTO_FILE"] || "../protos/case.proto";
-const HOST = process.env["HOST"] || "localhost:3000";
+const PROTO_FILE = process.env["PROTO_FILE"]!;
+const HOST = process.env["HOST"]!;
 
 // Main
 (async function main() {
@@ -35,15 +35,9 @@ const HOST = process.env["HOST"] || "localhost:3000";
   // keyPairs
   const keyPairs: grpc.KeyCertPair[] = [
     {
-      cert_chain: fs.readFileSync(
-        path.join(
-          "/home/bastosgm/projects/grpc/gRPC-first-steps/ssl/server.crt",
-        ),
-      ),
+      cert_chain: fs.readFileSync(path.join(__dirname, "../../ssl/server.crt")),
       private_key: fs.readFileSync(
-        path.join(
-          "/home/bastosgm/projects/grpc/gRPC-first-steps/ssl/server.key",
-        ),
+        path.join(__dirname, "../../ssl/server.key"),
       ),
     },
   ];
@@ -51,9 +45,7 @@ const HOST = process.env["HOST"] || "localhost:3000";
   // Credentials
   // const credentials = grpc.ServerCredentials.createInsecure();
   const credentials = grpc.ServerCredentials.createSsl(
-    fs.readFileSync(
-      path.join("/home/bastosgm/projects/grpc/gRPC-first-steps/ssl/rootCA.crt"),
-    ),
+    fs.readFileSync(path.join(__dirname, "../../ssl/rootCA.crt")),
     keyPairs,
     false,
   );

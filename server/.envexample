@@ -1,0 +1,2 @@
+PROTO_FILE="path/to/the/proto/file"
+HOST="localhost:XXXX"

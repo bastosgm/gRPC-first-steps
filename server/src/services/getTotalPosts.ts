@@ -11,7 +11,7 @@ const getTotalPosts = async (
   call: grpc.ServerUnaryCall<IReq, IRes>,
   callback: grpc.sendUnaryData<IRes>,
 ) => {
-  if (call.request.TotalPosts === "get total cases") {
+  if (call.request.TotalPosts === "get total posts") {
     const res = (await fetchPosts()) as IPost[];
     if (res !== undefined) {
       callback(null, {
@@ -19,9 +19,9 @@ const getTotalPosts = async (
       });
       logger.log(
         "debug",
-        `Request made successfully: get total cases | ${JSON.stringify(
+        `Request made successfully: get total posts | ${JSON.stringify(
           res.length,
-        )} | ['totalCases', 'theHiveData', 'data']`,
+        )} | ['totalPosts', 'data']`,
       );
     }
   } else {
@@ -29,15 +29,15 @@ const getTotalPosts = async (
       {
         code: grpc.status.INVALID_ARGUMENT,
         message:
-          'Not reconize message! probably it\'s different from the expected message "get total cases"',
+          'Not reconize message! probably it\'s different from the expected message "get total posts"',
       },
       null,
     );
     logger.log(
       "error",
-      "Not reconize message! probably it's different from the expected message 'get total cases'",
+      "Not reconize message! probably it's different from the expected message 'get total posts'",
       {
-        tags: ["totalCases", "theHiveData", "data"],
+        tags: ["totalPosts", "data"],
       },
     );
   }

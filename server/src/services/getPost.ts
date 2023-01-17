@@ -18,8 +18,8 @@ const getPost = async (
         "debug",
         `Request made successfully: get Post | ${
           res[+call.request.GetPost - 1].title
-        } | ['getCase', 'case', 'theHiveData', 'data']`,
-        { tags: ["getCase", "case", "theHiveData", "data"] },
+        } | ['getPost', 'post', 'data']`,
+        { tags: ["getPost", "post", "data"] },
       );
     }
   } else {
@@ -31,7 +31,7 @@ const getPost = async (
       null,
     );
     logger.log("error", `Invalid id! probably it isn't a number.`, {
-      tags: ["getCase", "case", "theHiveData", "data"],
+      tags: ["getPost", "post", "data"],
     });
   }
 };
