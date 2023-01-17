@@ -1,11 +1,11 @@
 //Types
-export interface IGetTotalCasesResponse {
-  TotalCases: number
+export interface IGetTotalPostsResponse {
+  TotalPosts: number;
 }
 
-export interface IGetCaseResponse {
-  userId: number,
-  id: number,
-  title: string,
-  body: string
+export interface IGetPostResponse {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
 }
