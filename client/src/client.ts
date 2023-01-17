@@ -6,8 +6,8 @@ import fs from "fs";
 import path from "path";
 
 // Data
-const PROTO_FILE = process.env["PROTO_FILE"] || "../protos/case.proto";
-const HOST = process.env["HOST"] || "localhost:3000";
+const PROTO_FILE = process.env["PROTO_FILE"]!;
+const HOST = process.env["HOST"]!;
 
 // Loading the proto file
 const packageDefinition = protoLoader.loadSync(PROTO_FILE);

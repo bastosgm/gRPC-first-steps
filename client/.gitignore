@@ -1,0 +1,7 @@
+# Files
+*.lock
+.env
+
+# Folders
+*/node_modules
+*/build

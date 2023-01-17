@@ -4,7 +4,7 @@ import logger from "./logs/logger";
 
 // Requesting total cases
 TotalPostsService["GetTotalPosts"](
-  { TotalPosts: "get total cases" },
+  { TotalPosts: "get total posts" },
   (err: Error, response: IGetTotalPostsResponse) => {
     if (response !== undefined) {
       logger.log("info", JSON.stringify(response, null, "\t"));
