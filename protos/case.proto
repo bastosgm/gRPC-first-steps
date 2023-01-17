@@ -1,20 +1,20 @@
 syntax = "proto3";
 
-package cases;
+package posts;
 
-//Get all cases
-message GetTotalCasesRequest {
-  string TotalCases = 1;
+//Get all posts
+message GetTotalPostsRequest {
+  string TotalPosts = 1;
 }
-message GetTotalCasesResponse {
-  int32 TotalCases = 1;
+message GetTotalPostsResponse {
+  int32 TotalPosts = 1;
 }
 
-// Get a specific case
-message GetCaseRequest {
-  string GetCase = 1;
+// Get a specific post
+message GetPostRequest {
+  string GetPost = 1;
 }
-message GetCaseResponse {
+message GetPostResponse {
   int32 userId = 1;
   int32 id = 2;
   string string = 3;
@@ -34,8 +34,8 @@ message HealthCheckResponse {
 }
 
 // Service
-service TotalCasesService {
-  rpc GetTotalCases(GetTotalCasesRequest) returns (GetTotalCasesResponse) {}
-  rpc GetCase(GetCaseRequest) returns (GetCaseResponse) {}
+service TotalPostsService {
+  rpc GetTotalPosts(GetTotalPostsRequest) returns (GetTotalPostsResponse) {}
+  rpc GetPost(GetPostRequest) returns (GetPostResponse) {}
   rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse) {}
 }
