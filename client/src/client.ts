@@ -12,11 +12,12 @@ const HOST = process.env["HOST"]!;
 // Loading the proto file
 const packageDefinition = protoLoader.loadSync(PROTO_FILE);
 
-// Preparing the package
+// Preparing the package (optional)
 const postsPackage: any =
   grpc.loadPackageDefinition(packageDefinition)["posts"];
 
 // Credentials
+// const credentials = grpc.credentials.createInsecure();
 const credentials = grpc.credentials.createSsl(
   fs.readFileSync(path.join(__dirname, "../../ssl/rootCA.crt")),
 );
